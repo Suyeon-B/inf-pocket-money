@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import {
   CalculatorWrapper,
   CalculatorTextarea,
-  InputTitle,
   CalculatorResult,
-} from "./calculator.styled";
-import { CalculatorProps } from "./calcalator.types";
+} from "./@calculator.styled";
+import { CalculatorProps } from "./@calcalator.types";
 import { CalculatorBody } from "./calculator-body";
-import { getNewInput, getCleanedText } from "./util";
-import { getPriceDisplayStr } from "../util";
+import { getNewInput, getCleanedText } from "@/components/calculator/util";
+import { getPriceDisplayStr } from "@/components/util";
+import { InputTitle } from "@/components/@common.styled";
 
 export const Calculator = ({ total, onCalculate }: CalculatorProps) => {
   const [input, setInput] = useState<string>("0");

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Footer } from ".";
+import { Footer } from "./@index";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

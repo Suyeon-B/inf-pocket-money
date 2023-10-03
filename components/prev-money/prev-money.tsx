@@ -1,16 +1,8 @@
-import {
-  PrevInput,
-  InputTitle,
-  PrevInputWrapper,
-} from "../calculator/calculator.styled";
+import { InputTitle } from "../@common.styled";
+import { PrevInputWrapper, PrevInput } from "./@prev-money.styled";
+import { PrevMoneyProps } from "./@prev-money.types";
 
-export const PrevMoney = ({
-  prevMoney,
-  setPrevMoney,
-}: {
-  prevMoney: string;
-  setPrevMoney: any;
-}) => {
+export const PrevMoney = ({ prevMoney, setPrevMoney }: PrevMoneyProps) => {
   return (
     <PrevInputWrapper>
       <InputTitle>작년 용돈 🔽 </InputTitle>

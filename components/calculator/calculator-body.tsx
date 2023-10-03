@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { CalculatorBodyProps } from "./calcalator.types";
+import { CalculatorBodyProps } from "./@calcalator.types";
 import {
   CalculatorButton,
   CalculatorButtonRow,
   CalculatorButtonWrapper,
-} from "./calculator.styled";
+} from "./@calculator.styled";
 
 export const CalculatorBody = ({ onClickButton }: CalculatorBodyProps) => {
   const [active, setActive] = useState("");

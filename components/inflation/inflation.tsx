@@ -1,18 +1,10 @@
-import {
-  Emphasize,
-  InflationContents,
-  StyledImage,
-} from "../calculator/calculator.styled";
-import { InflationContent } from ".";
-import { getPriceDisplayStr } from "../util";
+import { getPriceDisplayStr } from "@/components/util";
+import { InflationProps } from "./@inflation.types";
+import { Emphasize, StyledImage } from "@/components/@common.styled";
+import { InflationContents } from "./@inflation.styled";
+import { InflationContent } from "./content";
 
-export const Inflation = ({
-  total,
-  prevMoney,
-}: {
-  total: string | number;
-  prevMoney: string;
-}) => {
+export const Inflation = ({ total, prevMoney }: InflationProps) => {
   const prevPocketMoney = Number(prevMoney);
   const currPocketMoney = Number(total);
   const raisedPocketMoney = (prevPocketMoney * 103.4) / 100;

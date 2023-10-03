@@ -1,18 +1,18 @@
-import { Calculator } from "@/components/calculator/calculator";
+import { getCalculatedResult } from "@/components/calculator/util";
+import { Calculator } from "@/components/calculator/@index";
+import { Inflation } from "@/components/inflation/@index";
+import { PrevMoney } from "@/components/prev-money";
+import { useState } from "react";
+import Image from "next/image";
 import {
   HomeWrapper,
+  HomeTitleWrapper,
   HomeTitle,
+  StyledP,
   HomeContents,
   InputArea,
   StyledImage,
-  HomeTitleWrapper,
-  StyledP,
-} from "@/components/calculator/calculator.styled";
-import { getCalculatedResult } from "@/components/calculator/util";
-import { Inflation } from "@/components/inflation-graph";
-import { PrevMoney } from "@/components/prev-money";
-import Image from "next/image";
-import { useState } from "react";
+} from "@/components/@common.styled";
 
 export default function Home() {
   const [total, setTotal] = useState<string | number>(0);

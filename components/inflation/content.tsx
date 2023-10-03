@@ -1,18 +1,16 @@
-import { getPriceDisplayStr } from "../util";
+import { getPriceDisplayStr } from "@/components/util";
+import { InflationContentProps } from "./@inflation.types";
+import { StyledImage } from "@/components/@common.styled";
 import {
   Emphasize,
-  InflationContentWrapper,
-  StyledImage,
   StyledP,
-} from "../calculator/calculator.styled";
+  InflationContentWrapper,
+} from "./@inflation.styled";
 
 export const InflationContent = ({
   currPocketMoney,
   raisedPocketMoney,
-}: {
-  currPocketMoney: number;
-  raisedPocketMoney: number;
-}) => {
+}: InflationContentProps) => {
   const getPocketMoneyGoodOrShit = () => {
     if (raisedPocketMoney > currPocketMoney) {
       return "shit";
@@ -50,8 +48,9 @@ export const InflationContent = ({
       return (
         <>
           <h2>
-            올해는 총 <Emphasize>👎{currPocketMoney} 원👎</Emphasize>을
-            받았네요..🥲
+            올해는 총{" "}
+            <Emphasize>👎{getPriceDisplayStr(currPocketMoney)} 원👎</Emphasize>
+            을 받았네요..🥲
           </h2>
           <br />
           <StyledImage
