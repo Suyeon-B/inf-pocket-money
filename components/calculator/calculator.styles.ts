@@ -6,6 +6,11 @@ export const HomeWrapper = styled.div`
 
 export const HomeTitle = styled.h1``;
 
+export const PrevInput = styled.input`
+  width: 300px;
+  font-size: 24px;
+`;
+
 export const HomeContents = styled.div`
   display: flex;
 `;
@@ -37,4 +42,8 @@ export const CalculatorButton = styled.button`
   }
 `;
 
-export const InflationContents = styled.div``;
+export const InflationContents = styled.div`
+  display: flex;
+  max-width: 60vw;
+  flex-direction: column;
+`;

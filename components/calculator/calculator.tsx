@@ -12,7 +12,10 @@ export const Calculator = ({ total, onCalculate }: CalculatorProps) => {
   useEffect(() => {
     const handleKeyPress = () => {
       if (textareaRef.current && document.activeElement) {
-        if (!document.activeElement.isEqualNode(textareaRef.current)) {
+        if (
+          !document.activeElement.isEqualNode(textareaRef.current) &&
+          !document.activeElement.className.includes("prev-pocket-money")
+        ) {
           textareaRef.current.focus();
         }
       }

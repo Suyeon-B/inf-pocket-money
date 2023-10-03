@@ -3,7 +3,7 @@ import {
   HomeWrapper,
   HomeTitle,
   HomeContents,
-  InflationContents,
+  PrevInput,
 } from "@/components/calculator/calculator.styles";
 import { getCalculatedResult } from "@/components/calculator/util";
 import { Inflation } from "@/components/inflation-graph";
@@ -11,6 +11,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [total, setTotal] = useState<string | number>(0);
+  const [prevMoney, setPrevMoney] = useState<string>("");
 
   const onCalculate = (input: string) => {
     const result = getCalculatedResult(input);
@@ -20,10 +21,15 @@ export default function Home() {
   return (
     <HomeWrapper>
       <HomeTitle>Inflation 용돈 계산기</HomeTitle>
+      <PrevInput
+        className="prev-pocket-money"
+        placeholder="작년 용돈을 입력해보세요."
+        value={prevMoney}
+        onChange={(e) => setPrevMoney(e.target.value)}
+      />
       <HomeContents>
         <Calculator total={total} onCalculate={onCalculate} />
-        <Inflation />
-        <InflationContents>inflation 그래프 자리 {total}원</InflationContents>
+        {prevMoney && <Inflation total={total} prevMoney={prevMoney} />}
       </HomeContents>
     </HomeWrapper>
   );
