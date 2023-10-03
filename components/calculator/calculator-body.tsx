@@ -1,70 +1,61 @@
+import { useState } from "react";
 import { CalculatorBodyProps } from "./calcalator.types";
-import { CalculatorButton } from "./calculator.styles";
+import {
+  CalculatorButton,
+  CalculatorButtonRow,
+  CalculatorButtonWrapper,
+} from "./calculator.styles";
 
 export const CalculatorBody = ({ onClickButton }: CalculatorBodyProps) => {
+  const [active, setActive] = useState("");
+  const options = [
+    "7",
+    "8",
+    "9",
+    "/",
+    "4",
+    "5",
+    "6",
+    "*",
+    "1",
+    "2",
+    "3",
+    "+",
+    "AC",
+    "0",
+    "C",
+    "=",
+  ];
+
+  const getTheme = (option: string) => {
+    switch (option) {
+      case "=":
+        return "equals";
+      case "AC":
+        return "ac";
+      case "operator":
+        return "operator";
+      default:
+        return "";
+    }
+  };
+
   return (
-    <>
-      <div>
-        <CalculatorButton onClick={() => onClickButton("7")}>
-          7
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("8")}>
-          8
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("9")}>
-          9
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("+")}>
-          +
-        </CalculatorButton>
-      </div>
-      <div>
-        <CalculatorButton onClick={() => onClickButton("4")}>
-          4
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("5")}>
-          5
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("6")}>
-          6
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("-")}>
-          -
-        </CalculatorButton>
-      </div>
-      <div>
-        <CalculatorButton onClick={() => onClickButton("1")}>
-          1
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("2")}>
-          2
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("3")}>
-          3
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("*")}>
-          *
-        </CalculatorButton>
-      </div>
-      <div>
-        <CalculatorButton onClick={() => onClickButton("0")}>
-          0
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("=")}>
-          =
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("C")}>
-          C
-        </CalculatorButton>
-        <CalculatorButton onClick={() => onClickButton("/")}>
-          /
-        </CalculatorButton>
-      </div>
-      <div>
-        <CalculatorButton onClick={() => onClickButton("AC")}>
-          AC
-        </CalculatorButton>
-      </div>
-    </>
+    <CalculatorButtonWrapper>
+      <CalculatorButtonRow>
+        {options.map((option) => (
+          <CalculatorButton
+            key={option}
+            active={active === option}
+            theme={getTheme(option)}
+            onMouseDown={() => setActive(option)}
+            onMouseUp={() => setActive("")}
+            onClick={() => onClickButton(option)}
+          >
+            {option}
+          </CalculatorButton>
+        ))}
+      </CalculatorButtonRow>
+    </CalculatorButtonWrapper>
   );
 };

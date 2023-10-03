@@ -29,29 +29,19 @@ export const getCleanedText = (text: string) =>
   text.replace(/[^0-9=+\-*/C]/g, "");
 
 export const numberRegex = /\d+/g;
-export const operatorRegex = /[+\-*=\/]/g;
+export const operatorRegex = /[+\-*\/]/g;
 
 export const getNewInput = (prev: string, curr: string) => {
   // 현재 입력값(curr)이 연산자일 때
   // 마지막 요소가 연산자라면
   const lastChar = prev[prev.length - 1];
-  if (/[/+\-=*]/.test(lastChar) && /[/+\-=*]/.test(curr)) {
+  if (/[/+\-*]/.test(lastChar) && /[/+\-*]/.test(curr)) {
     // 새로운 연산자로 대체
     return prev.slice(0, -1) + curr;
   }
 
   // 현재 입력값(curr)이 숫자일 때
-  let newInput = "";
-  if (prev.includes("=")) {
-    if (!curr.match(numberRegex)) {
-      newInput = prev;
-    } else {
-      newInput = curr;
-    }
-  } else {
-    newInput = prev + curr;
-  }
-
+  const newInput = prev + curr;
   const numbers = newInput.match(numberRegex);
   const operators = newInput.match(operatorRegex) || [];
 
@@ -72,6 +62,5 @@ export const getNewInput = (prev: string, curr: string) => {
     []
   );
 
-  newInput = combinedArray.join("\n");
-  return newInput;
+  return combinedArray.join("\n");
 };

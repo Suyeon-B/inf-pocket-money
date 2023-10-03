@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { CalculatorWrapper, CalculatorTextarea } from "./calculator.styles";
+import {
+  CalculatorWrapper,
+  CalculatorTextarea,
+  InputTitle,
+  CalculatorResult,
+} from "./calculator.styles";
 import { CalculatorProps } from "./calcalator.types";
 import { CalculatorBody } from "./calculator-body";
 import { getNewInput, getCleanedText } from "./util";
+import { getPriceDisplayStr } from "../util";
 
 export const Calculator = ({ total, onCalculate }: CalculatorProps) => {
   const [input, setInput] = useState<string>("0");
@@ -29,8 +35,8 @@ export const Calculator = ({ total, onCalculate }: CalculatorProps) => {
   }, []);
 
   // autoResize
-  const autoResizeTextarea = () => {
-    let textarea = document.querySelector(
+  useEffect(() => {
+    const textarea = document.querySelector(
       ".autoTextarea"
     ) as HTMLTextAreaElement;
 
@@ -39,16 +45,24 @@ export const Calculator = ({ total, onCalculate }: CalculatorProps) => {
       let height = textarea.scrollHeight;
       textarea.style.height = `${height + 8}px`;
     }
-  };
+  }, [input]);
+
+  // refresh
+  useEffect(() => {
+    if (total === 0) {
+      setInput("0");
+    }
+  }, [total]);
 
   // 버튼으로 동작 시
   const onClickButton = (curr: string) => {
-    autoResizeTextarea();
     if (curr === "AC") {
-      return setInput("0");
+      setInput("0");
+      return;
     }
     if (curr === "C") {
-      return setInput(input.length > 1 ? input.slice(0, -1) : "0");
+      setInput(input.length > 1 ? input.slice(0, -1) : "0");
+      return;
     }
 
     const newInput = getNewInput(input, curr);
@@ -100,18 +114,18 @@ export const Calculator = ({ total, onCalculate }: CalculatorProps) => {
 
   return (
     <CalculatorWrapper>
+      <InputTitle>올해 용돈 🔽</InputTitle>
       <CalculatorTextarea
         ref={textareaRef}
         className="autoTextarea"
         value={input}
-        onChange={autoResizeTextarea}
         onPaste={onPaste}
         onKeyDown={onKeyDown}
       />
+      <CalculatorResult>
+        <p>= {getPriceDisplayStr(total)}</p>
+      </CalculatorResult>
       <CalculatorBody onClickButton={onClickButton} />
-      <div>
-        <p>Total: {total}</p>
-      </div>
     </CalculatorWrapper>
   );
 };
