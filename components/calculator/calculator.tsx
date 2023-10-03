@@ -4,7 +4,7 @@ import {
   CalculatorTextarea,
   InputTitle,
   CalculatorResult,
-} from "./calculator.styles";
+} from "./calculator.styled";
 import { CalculatorProps } from "./calcalator.types";
 import { CalculatorBody } from "./calculator-body";
 import { getNewInput, getCleanedText } from "./util";
@@ -123,7 +123,7 @@ export const Calculator = ({ total, onCalculate }: CalculatorProps) => {
         onKeyDown={onKeyDown}
       />
       <CalculatorResult>
-        <p>= {getPriceDisplayStr(total)}</p>
+        <p>= {getPriceDisplayStr(total)}원</p>
       </CalculatorResult>
       <CalculatorBody onClickButton={onClickButton} />
     </CalculatorWrapper>

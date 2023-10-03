@@ -4,7 +4,7 @@ import {
   CalculatorButton,
   CalculatorButtonRow,
   CalculatorButtonWrapper,
-} from "./calculator.styles";
+} from "./calculator.styled";
 
 export const CalculatorBody = ({ onClickButton }: CalculatorBodyProps) => {
   const [active, setActive] = useState("");

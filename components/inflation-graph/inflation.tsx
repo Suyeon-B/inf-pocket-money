@@ -2,7 +2,7 @@ import {
   Emphasize,
   InflationContents,
   StyledImage,
-} from "../calculator/calculator.styles";
+} from "../calculator/calculator.styled";
 import { InflationContent } from ".";
 import { getPriceDisplayStr } from "../util";
 
@@ -22,7 +22,7 @@ export const Inflation = ({
       <p>
         2023년 최신(8월) 물가 상승률에 따르면 최소한{" "}
         <Emphasize>{getPriceDisplayStr(raisedPocketMoney)} 원</Emphasize>은
-        주셔야하는데 말이죠 ..
+        받아야하는데 말이죠 ..
       </p>
       <br />
       <StyledImage

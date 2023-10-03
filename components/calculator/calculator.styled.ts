@@ -2,40 +2,43 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 
 export const HomeWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  margin: 80px 40px;
-  border: 1px solid #e8ebee;
+  margin: 50px 40px;
+  border: 1px solid white;
   border-radius: 6px;
+  background-color: white;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.03);
-  background-color: #fff;
   @media (max-width: 768px) {
-    margin: 0;
+    margin: 30px 20px;
   }
 `;
 export const HomeTitleWrapper = styled.div`
   display: flex;
+  padding: 20px;
   align-items: center;
+  justify-content: center;
 `;
 export const HomeTitle = styled.h1`
   padding: 20px;
-  width: 100%;
   text-align: center;
+  font-family: "UhBeeSe_hyun_Bold";
   @media (max-width: 768px) {
-    font-size: 30px;
+    font-size: 1.4rem;
     padding: 10px;
   }
 `;
 export const HomeContents = styled.div`
   display: flex;
-  padding: 20px 0;
-  gap: 20px;
-
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 30px 20px;
+  border-radius: 6px;
+  background-color: #fff1f3;
+  box-shadow: 0 1px 3px 0 rgba(136, 148, 158, 0.25),
+    0 0 2px 0 rgba(136, 148, 158, 0.3);
   @media (max-width: 768px) {
     flex-direction: column;
-    width: calc(100vw - 40px);
+    margin: 0;
   }
 `;
 
@@ -207,5 +210,10 @@ export const InflationContentWrapper = styled.div`
 export const Emphasize = styled.span`
   font-weight: bold;
   color: ${(props) => props.color || "red"};
+`;
+
+export const StyledP = styled.p`
+  font-family: monospace;
+  text-align: center;
 `;
 // Inflation 영역 끝 -------------------------------

@@ -2,7 +2,7 @@ import {
   PrevInput,
   InputTitle,
   PrevInputWrapper,
-} from "../calculator/calculator.styles";
+} from "../calculator/calculator.styled";
 
 export const PrevMoney = ({
   prevMoney,

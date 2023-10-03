@@ -3,7 +3,8 @@ import {
   Emphasize,
   InflationContentWrapper,
   StyledImage,
-} from "../calculator/calculator.styles";
+  StyledP,
+} from "../calculator/calculator.styled";
 
 export const InflationContent = ({
   currPocketMoney,
@@ -29,6 +30,7 @@ export const InflationContent = ({
             을 받았군요.
           </h2>
           <h1>감사합니다 !!!!!!!</h1>
+          <br />
           <StyledImage
             alt="good"
             src={"/good.png"}
@@ -36,10 +38,11 @@ export const InflationContent = ({
             width={60}
             height={100}
           />
-          <p>
+          <br />
+          <StyledP>
             ༼;´༎ຶ۝༎ຶ༽우워어어어어엌!!!!!!!끆ㄱ끄얶흒끕..끆껑껑..끆끆흡끅..흡꾺꾺꾹ㄱ끄엉..헝헝헝ㅇ..흡끄륵ㄱ끅끅ㄱ끄엉엉..흡끄윽ㅋㅋ깔깔😂ㅋㅋ🌟ㅋ🌟ㅋㅋ우르롹끼🐒ㅋㅋ🌟ㅋ🌟ㅋㅋ깔깔😂ㅋㅋ🌟ㅋ🌟ㅋㅋ우르롹끼🐒ㅋㅋ🌟ㅋ🌟ㅋㅋ깔깔😂ㅋㅋ🌟ㅋ🌟ㅋㅋ우르롹끼🐒ㅋㅋ🌟ㅋ🌟ㅋㅋ깔깔😂ㅋㅋ🌟ㅋ🌟ㅋㅋ우르롹끼🐒ㅋㅋ🌟ㅋ🌟ㅋㅋ깔깔😂ㅋㅋ🌟ㅋ🌟ㅋㅋ우르롹끼🐒ㅋㅋ🌟ㅋ🌟ㅋㅋ깔깔😂ㅋㅋ🌟ㅋ🌟ㅋㅋ우르롹끼🐒ㅋㅋ🌟ㅋ🌟ㅋㅋ깔깔😂ㅋㅋ🌟ㅋ🌟ㅋㅋ우르롹끼🐒ㅋㅋ🌟ㅋ🌟ㅋㅋ깔깔😂ㅋㅋ🌟ㅋ🌟ㅋㅋ우르롹끼🐒ㅋㅋ🌟ㅋ🌟ㅋㅋ깔깔😂ㅋㅋ🌟ㅋ🌟ㅋㅋ우르롹끼🐒ㅋㅋ🌟ㅋ🌟ㅋㅋ명절
             짱❗️ 용돈 짱❗️
-          </p>
+          </StyledP>
         </>
       );
     }
@@ -50,6 +53,7 @@ export const InflationContent = ({
             올해는 총 <Emphasize>👎{currPocketMoney} 원👎</Emphasize>을
             받았네요..🥲
           </h2>
+          <br />
           <StyledImage
             alt="shit"
             src={"/shit.png"}
@@ -57,7 +61,8 @@ export const InflationContent = ({
             width={60}
             height={100}
           />
-          <p>
+          <br />
+          <StyledP>
             차액{" "}
             <Emphasize>
               {getPriceDisplayStr(raisedPocketMoney - currPocketMoney)} 원
@@ -73,7 +78,7 @@ export const InflationContent = ({
             꺼이꺼이..😞.. 흐그극😭.. 흐국뚜흐국뚜리😢..
             앙앙엉엉😫..주르륵..컹..꺼이꺼이..😞.. 흐그극😭.. 흐국뚜흐국뚜리{" "}
             <Emphasize color="black">...더보기</Emphasize>
-          </p>
+          </StyledP>
         </>
       );
     }

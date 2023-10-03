@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "UhBeeSe_hyun";
+  src: url("/fonts/UhBee Se_hyun.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "UhBeeSe_hyun_Bold";
+  src: url("/fonts/UhBee Se_hyun Bold.ttf") format("truetype");
+}
+
+/* 폰트 적용 */
+body {
+  font-family: "UhBeeSe_hyun";
+}
